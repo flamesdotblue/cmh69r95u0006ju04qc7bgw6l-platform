@@ -1,6 +1,5 @@
 import React from 'react';
 
-// Simple custom SVG "anime style" spark logo with gradient — free to use
 export default function AnimeLogo({ className = 'h-8 w-8' }) {
   return (
     <svg

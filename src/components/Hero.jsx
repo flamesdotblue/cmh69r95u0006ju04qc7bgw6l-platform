@@ -1,6 +1,5 @@
 import React from 'react';
 import { Rocket, Star } from 'lucide-react';
-import Spline from '@splinetool/react-spline';
 
 export default function Hero() {
   return (
@@ -34,15 +33,14 @@ export default function Hero() {
             <StatItem label="Focus" value="UI • Animations" />
           </div>
         </div>
-        <div className="relative h-[380px] sm:h-[460px] lg:h-[520px] order-1 lg:order-2">
-          <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 border border-white/10" />
-          <div className="absolute inset-0 rounded-2xl overflow-hidden">
-            <Spline
-              scene="https://prod.spline.design/4cHQr84zOGAHOehh/scene.splinecode"
-              style={{ width: '100%', height: '100%' }}
-            />
+        <div className="relative order-1 lg:order-2">
+          <div className="relative h-[380px] sm:h-[460px] lg:h-[520px]">
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-b from-white/10 to-white/5 border border-white/10" />
+            <div className="absolute inset-0 rounded-2xl overflow-hidden">
+              <AnimatedPanel />
+            </div>
+            <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-t from-neutral-950/60 via-transparent to-transparent" />
           </div>
-          <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-t from-neutral-950/60 via-transparent to-transparent" />
         </div>
       </div>
     </section>
@@ -54,6 +52,28 @@ function StatItem({ label, value }) {
     <div className="rounded-lg border border-white/10 bg-white/5 px-3 py-4">
       <div className="text-lg font-semibold">{value}</div>
       <div className="text-xs text-white/60">{label}</div>
+    </div>
+  );
+}
+
+function AnimatedPanel() {
+  return (
+    <div className="h-full w-full relative">
+      <div className="absolute -top-16 -left-10 h-72 w-72 bg-gradient-to-tr from-indigo-500/40 via-fuchsia-400/30 to-cyan-400/40 blur-3xl rounded-full animate-pulse" />
+      <div className="absolute bottom-10 right-6 h-64 w-64 bg-gradient-to-br from-cyan-400/30 to-indigo-500/30 blur-3xl rounded-full animate-[pulse_5s_ease-in-out_infinite]" />
+      <div className="absolute inset-0 grid place-items-center">
+        <div className="h-40 w-40 rounded-xl border border-white/10 bg-white/5 backdrop-blur-sm shadow-[0_0_60px_rgba(99,102,241,0.35)]">
+          <div className="h-full w-full relative overflow-hidden rounded-xl">
+            <div className="absolute inset-0 bg-[conic-gradient(from_0deg,rgba(99,102,241,0.25),rgba(34,211,238,0.2),rgba(236,72,153,0.2),rgba(99,102,241,0.25))] animate-[spin_12s_linear_infinite]" />
+            <div className="absolute inset-[2px] rounded-[10px] bg-neutral-950/60 border border-white/10 grid place-items-center">
+              <div className="text-center text-sm text-white/80">
+                Futuristic
+                <div className="text-xs text-white/60">Interactive Panel</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
